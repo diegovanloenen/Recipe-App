@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "174650313090",
+    "project_id": "recipe-app-5faf1",
+    "storage_bucket": "recipe-app-5faf1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:174650313090:android:e2a3a4e72cbee4a2fee79b",
+        "android_client_info": {
+          "package_name": "app.mtrl.recipe"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "174650313090-4ghcl0rnlf4k0ercpvl0tu5f0ivv4cju.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB8NfKzq4kGZvnLGIQiNkXAYepa0lv4fN4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "174650313090-4ghcl0rnlf4k0ercpvl0tu5f0ivv4cju.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:174650313090:android:9c3fa58e56bb2988fee79b",
+        "android_client_info": {
+          "package_name": "com.material.recipe"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "174650313090-4ghcl0rnlf4k0ercpvl0tu5f0ivv4cju.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB8NfKzq4kGZvnLGIQiNkXAYepa0lv4fN4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "174650313090-4ghcl0rnlf4k0ercpvl0tu5f0ivv4cju.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

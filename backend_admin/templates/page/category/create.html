@@ -1,0 +1,59 @@
+<md-dialog layout="column" flex="50" aria-label="dialog category">
+  <form role="form" name="thisForm">
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2>{{title}}</h2>
+        <span flex></span>
+        <md-button class="md-icon-button" ng-click="cancel()">
+          <md-icon aria-label="Close dialog">clear</md-icon>
+        </md-button>
+      </div>
+    </md-toolbar>
+
+    <md-dialog-content class="autoScroll" style="max-width:800px;max-height:810px;">
+      
+      <div layout="row">
+        <md-input-container flex="50">
+          <label>Category Name</label>
+          <input required name="name" ng-model="category.name" maxlength="50">
+          <div ng-messages="thisForm.name.$error">
+            <div ng-message="required">required.</div>
+          </div>
+        </md-input-container>
+      </div>
+
+      <input style="margin-top:15px;" type="file" name="file" onchange="angular.element(this).scope().onFileSelect(this.files)"/> 
+      <md-input-container>
+        <div ng-messages ng-if="bannerInvalid">
+          <div ng-message-exp>JPG/PNG, max size 0.5MB</div>
+        </div>
+      </md-input-container>
+
+      <div layout="row">
+        <md-input-container flex="100">
+          <label>Category Description</label>
+          <input required name="description" ng-model="category.description" maxlength="50">
+          <div ng-messages="thisForm.description.$error">
+            <div ng-message="required">required.</div>
+          </div>
+        </md-input-container>
+      </div>
+      
+      <md-input-container flex="100">
+        <md-checkbox ng-model="send_gcm">Send GCM to users</md-checkbox>
+      </md-input-container>
+
+    </md-dialog-content>
+
+    <div class="md-actions md-padding" layout="row">
+      <span flex></span>
+      <md-button ng-if="!submit_loading"  class="md-warn" ng-click="hide()" >
+       CANCEL
+      </md-button>
+      <md-button ng-if="!submit_loading" ng-disabled="bannerInvalid || isClean() || thisForm.$invalid" ng-click="submit(category)" style="margin-right:20px;" >
+        {{buttonText}}
+      </md-button>
+      <md-progress-circular ng-if="submit_loading" class="md-accent" md-mode="indeterminate" md-diameter="30px"></md-progress-circular>
+    </div>
+  </form>
+</md-dialog>

@@ -1,0 +1,41 @@
+<md-dialog layout="column" flex="50" aria-label="dialog recipe">
+  <form role="form" name="thisForm">
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2>Details Recipe</h2>
+        <span flex></span>
+        <md-button class="md-icon-button" ng-click="cancel()">
+          <md-icon aria-label="Close dialog">clear</md-icon>
+        </md-button>
+      </div>
+    </md-toolbar>
+
+    <md-dialog-content class="autoScroll" style="max-width:800px;max-height:810px;">
+      <img class="md-center" style="margin: auto; max-width: 100%;" ng-src="uploads/recipe/{{recipe.image}}" flex="40">
+      <div layout="row">
+        <p flex="40">Name</p> <p flex="5"> : </p>
+        <p>{{recipe.name}}</p>
+      </div>
+      <md-divider ></md-divider>
+      <div layout="row">
+        <p flex="40">Duration</p> <p flex="5"> : </p>
+        <p>{{recipe.duration}} minute</p>
+      </div>
+      <md-divider ></md-divider>
+      <div layout="row"> 
+        <p flex="40">Category</p> <p flex="5"> : </p>
+        <p>{{recipe.category_name}}</p>
+      </div>
+      <md-divider ></md-divider>
+      <div layout="row">
+        <p flex="40">Date</p> <p flex="5"> : </p>
+        <p>{{recipe.date_create | date:'dd MMM yy'}}</p>
+      </div>      
+      <md-divider ></md-divider>
+      <div layout="row">
+        <p flex="40">Instruction</p> <p flex="5"> : </p>
+      </div>
+      <div ng-bind-html="recipe.instruction"></div>
+    </md-dialog-content>
+  </form>
+</md-dialog>

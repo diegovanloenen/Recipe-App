@@ -1,0 +1,76 @@
+<md-dialog layout="column" flex="50" aria-label="dialog recipe">
+  <form role="form" name="thisForm" id="thisForm" novalidate>
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2>{{title}}</h2>
+        <span flex></span>
+        <md-button class="md-icon-button" ng-click="cancel()">
+          <md-icon aria-label="Close dialog">clear</md-icon>
+        </md-button>
+      </div>
+    </md-toolbar>
+
+    <md-dialog-content class="autoScroll" style="max-width:800px;max-height:810px;">
+      
+      <div layout="row">
+        <md-input-container flex="100">
+          <label>Recipe Name</label>
+          <input required name="name" ng-model="recipe.name" maxlength="50">
+          <div ng-messages="thisForm.name.$error">
+            <div ng-message="required">required.</div>
+          </div>
+        </md-input-container>
+      </div>
+
+      <div layout="row">
+        <md-input-container flex="50">
+          <label>Duration</label>
+          <input type="number" min="1" ng-pattern="^[0-9]" required name="duration" ng-model="recipe.duration" maxlength="11">
+          <div ng-messages="thisForm.duration.$error">
+            <div ng-message="required">required.</div>
+          </div>
+        </md-input-container>
+      </div>
+
+      <md-input-container>
+        <label>Category</label>
+        <md-select required name="category" ng-model="recipe.category">
+          <md-select-label>{{ categories.name }}</md-select-label>
+          <md-option ng-repeat="c in categories" ng-value="c.id" >{{ c.name }}</md-option>
+        </md-select>
+        <div ng-messages="thisForm.category.$error">
+          <div ng-message="required">required.</div>
+        </div>
+      </md-input-container>
+
+      <input style="margin-top:15px;" type="file" name="image" onchange="angular.element(this).scope().onFileSelect(this.files)"/> 
+      <md-input-container>
+        <div ng-messages ng-if="imageInvalid">
+          <div ng-message-exp>JPG/PNG only, max size 0.5MB</div>
+        </div>
+      </md-input-container>
+
+      <br>
+      <legend>Instruction</legend>
+      <div text-angular="text-angular" required name="content" ng-model="recipe.instruction"></div>
+
+      <br>
+      <md-input-container flex="100">
+        <md-checkbox ng-model="send_gcm">Send Notif to users</md-checkbox>
+      </md-input-container>
+
+
+    </md-dialog-content>
+
+    <div class="md-actions md-padding" layout="row">
+      <span flex></span>
+      <md-button ng-if="!submit_loading" class="md-warn" ng-click="hide()" >
+       CANCEL
+      </md-button>
+      <md-button ng-if="!submit_loading" ng-disabled="imageInvalid || isClean() || thisForm.$invalid" ng-click="submit(recipe)" style="margin-right:20px;" >
+        {{buttonText}}
+      </md-button>
+      <md-progress-circular ng-if="submit_loading" class="md-accent" md-mode="indeterminate" md-diameter="30px"></md-progress-circular>
+    </div>
+  </form>
+</md-dialog>
